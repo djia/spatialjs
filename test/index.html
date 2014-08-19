@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Spatial.js Tests</title>
+	<meta name="author" content="David Jia">
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="js/numeric-1.2.6.min.js" type="text/javascript"></script>
+	<script src="../data/data-large.js" type="text/javascript"></script>
+	<script src="../data/data-small.js" type="text/javascript"></script>
+	<script src="../src/spatial.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		var startSmall = function() {
+			var startTime = Date.now();
+			var params = Spatial.SAR(ySmall, XSmall, WSmall);
+			var endTime = Date.now();
+			var time = (endTime - startTime);
+			$("#output").html("rho: " + params.rho + " beta: " + params.beta + " sigmaSqr: " + params.sigmaSqr + " logML: " + params.logML + "<br>Finished in: " + time + " milliseconds");
+		}
+		
+		var startLarge = function() {
+			var startTime = Date.now();
+			var params = Spatial.SAR(yLarge, XLarge, WLarge);
+			var endTime = Date.now();
+			var time = (endTime - startTime);
+			$("#output").html("rho: " + params.rho + " beta: " + params.beta + " sigmaSqr: " + params.sigmaSqr + " logML: " + params.logML + "<br>Finished in: " + time + " milliseconds");
+		}
+		
+	</script>
+</head>
+<body>
+	
+	<button type="button" onclick="startSmall();">Test small dataset</button>
+	<button type="button" onclick="startLarge();">Test large dataset</button>
+	
+	<div id="output">
+		
+	</div>
+	
+</body>
+</html>
