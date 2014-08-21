@@ -5,8 +5,6 @@
  * Stanford University
  */
 
-var numeric = require("numeric");
-
 var Spatial = {};
 
 // define some constants
@@ -315,3 +313,4 @@ Spatial.CAR = function(y, X, W, options) {
 	
 	return params;
 }
+
